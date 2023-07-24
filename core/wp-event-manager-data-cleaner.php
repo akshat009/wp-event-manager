@@ -275,7 +275,8 @@ class WP_Event_Manager_Data_Cleaner {
 	 * @access private
 	 */
 	private static function cleanup_pages() {
-		// Trash the Submit Event page.
+		//Changed by Akshat to delete pages on uninstall.
+		/*Trash the Submit Event page.
 		$submit_event_form_page_id = get_option( 'event_manager_submit_event_form_page_id' );
 		if ( $submit_event_form_page_id ) {
 			wp_delete_post( $submit_event_form_page_id, true );
@@ -327,6 +328,24 @@ class WP_Event_Manager_Data_Cleaner {
 		$event_venues_page_id = get_option( 'event_manager_event_venues_page_id' );
 		if ( $event_venues_page_id ) {
 			wp_delete_post( $event_venues_page_id, true );
+		}*/
+		$pages_to_delete = array(
+			'Post an Event',
+			'Event Dashboard',
+			'Events',
+			'Submit Organizer Form',
+			'Organizer Dashboard',
+			'Event Organizers',
+			'Submit Venue Form',
+			'Venue Dashboard',
+			'Event Venues',
+		);
+		// Loop through the page titles and delete the corresponding pages.
+		foreach ( $pages_to_delete as $page_title ) {
+			$delete_page = get_page_by_title( $page_title ); // Get the page by title.
+			if ( $delete_page ) {
+				wp_delete_post( $delete_page->ID, true ); // Delete the page.
+			}
 		}
 		
 	}

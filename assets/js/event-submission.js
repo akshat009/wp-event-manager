@@ -16,24 +16,31 @@ EventSubmission = function () {
             });
 
             if (jQuery('#event_start_time').length > 0) {
-                jQuery('#event_start_time').timepicker({
+
+              /* Added by Akshat to make it dependable 
+              jQuery('#event_start_time').timepicker({
                     'timeFormat': wp_event_manager_event_submission.i18n_timepicker_format,
                     'step': wp_event_manager_event_submission.i18n_timepicker_step,
                 });
+                */
+                jQuery('#event_start_time').attr("placeholder", "Chose Start date first");
             }
 
             if (jQuery('#event_end_time').length > 0) {
-                jQuery('#event_end_time').timepicker({
+              /* Added by Akshat to make it dependable
+               jQuery('#event_end_time').timepicker({
                     'timeFormat': wp_event_manager_event_submission.i18n_timepicker_format,
                     'step': wp_event_manager_event_submission.i18n_timepicker_step,
-                });
+                });*/
+                
             }
 
             if (jQuery('input[data-picker="timepicker"]').length > 0) {
+                /* Added by Akshat to make it dependable
                 jQuery('input[data-picker="timepicker"]').timepicker({
                     'timeFormat': wp_event_manager_event_submission.i18n_timepicker_format,
                     'step': wp_event_manager_event_submission.i18n_timepicker_step,
-                });
+                });*/
             }
 
 
